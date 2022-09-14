@@ -5,17 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadToError : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E)){
-            SceneManager.LoadScene("error");
+            SendErrMsg.Instance.param = 99.99;  //设置参数
+            SceneManager.LoadScene("error");  //跳转至Error
         }
     }
 }

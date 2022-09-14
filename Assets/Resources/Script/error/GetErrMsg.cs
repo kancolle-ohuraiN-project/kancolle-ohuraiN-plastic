@@ -36,6 +36,9 @@ public class GetErrMsg : MonoBehaviour
             case "2.2":
                 ErrorText = "客户端版本并不为服务端版本\n请更新客户端";
                 break;
+            case "99.99":
+                ErrorText = "恭喜您触发彩蛋了！\n请重启客户端吧！\n(未保存进度可能会丢失哦qwq)";
+                break;
             default:
                 ErrorText = "我们也不知道您遇见什么错误了\n请您重启游戏试试？";
                 break;
