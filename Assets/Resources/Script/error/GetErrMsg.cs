@@ -18,7 +18,7 @@ public class GetErrMsg : MonoBehaviour
     }
     private void ErrMsgJudge(string param)
     {
-        
+        //暂时穷举，可能会在之后直接将文本添加到SendErrMsg中并且传输到此（似乎无法传输String）
         switch (param)
         {
             case "1.1":

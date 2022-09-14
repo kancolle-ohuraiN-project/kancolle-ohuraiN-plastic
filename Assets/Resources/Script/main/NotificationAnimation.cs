@@ -19,6 +19,7 @@ public class NotificationAnimation : MonoBehaviour
 
     public void OnClick()
     {
+        //控制是否播放开/关动画
         if (isopen == 0)
         {
             gaminitor.GetComponent<Animator>().enabled = false;
