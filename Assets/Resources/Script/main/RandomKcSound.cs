@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//防止出现CS0104
 using Random = UnityEngine.Random;
 
 public class RandomKcSound : MonoBehaviour
