@@ -12,7 +12,7 @@ public class SendErrMsg : MonoBehaviour
      * 
      * *****************/
     public static SendErrMsg Instance { get; private set; }
-    public double param { get; set; } = 0;
+    public string param { get; set; } = null;
 
     void Awake()
     {

@@ -12,13 +12,18 @@ public class GetErrMsg : MonoBehaviour
     public string ErrorText;
     void Start()
     {
-        double param = SendErrMsg.Instance.param;
-        string ErrorCode = param.ToString("G");
+        //获取参数
+        string ErrorCode = SendErrMsg.Instance.param;
         ErrMsgJudge(ErrorCode);
     }
     private void ErrMsgJudge(string param)
     {
-        //暂时穷举，可能会在之后直接将文本添加到SendErrMsg中并且传输到此（似乎无法传输String）
+        //如果没有传任何参数即发出此消息
+        if(param == null)
+        {
+            param = "我们也不知道您遇见什么错误了\n请您重启游戏试试？";
+        }
+        //判断是否为错误码，如不是就直接输出传参内容
         switch (param)
         {
             case "1.1":
@@ -40,7 +45,7 @@ public class GetErrMsg : MonoBehaviour
                 ErrorText = "恭喜您触发彩蛋了！\n请重启客户端吧！\n(未保存进度可能会丢失哦qwq)";
                 break;
             default:
-                ErrorText = "我们也不知道您遇见什么错误了\n请您重启游戏试试？";
+                ErrorText = param;
                 break;
         }
         //打印字符
