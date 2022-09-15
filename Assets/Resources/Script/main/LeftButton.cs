@@ -25,7 +25,7 @@ public class LeftButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             obj1.SetActive(false);
             obj.SetActive(true);
         }
-        
+
     }
 
 

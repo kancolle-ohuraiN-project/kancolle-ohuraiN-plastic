@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: "\u6E38\u620F"
+  m_Title: "\u68C0\u67E5\u5668"
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 26
+  controlID: 121
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -841,9 +841,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 1afaffff
+      m_SelectedIDs: 18faffff
+      m_LastClickedID: -1512
+      m_ExpandedIDs: 1afaffff26610000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -908,22 +908,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scenes
+    - Assets/Resources/Script/error
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Resources/Script/error
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Users\misaka10843\Documents\Unity Projects\kancolle-ohuraiN
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 24790000
-    m_LastClickedID: 31012
-    m_ExpandedIDs: 000000001479000000ca9a3b
+    m_SelectedIDs: 60790000
+    m_LastClickedID: 31072
+    m_ExpandedIDs: 0000000014790000227900003a7900003c7900003e790000c686000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -978,7 +978,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: ee630000886100002eb5000082780000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

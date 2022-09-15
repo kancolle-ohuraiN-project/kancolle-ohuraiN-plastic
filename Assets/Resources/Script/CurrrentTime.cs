@@ -19,11 +19,14 @@ public class CurrrentTime : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isday == true){
-          CurrrentTimeText.text = string.Format("{0}",DateTime.Now.ToString("MM/dd"));
-        }else{
-          CurrrentTimeText.text = string.Format("{0}",DateTime.Now.ToString("HH:mm"));
+        if (isday == true)
+        {
+            CurrrentTimeText.text = string.Format("{0}", DateTime.Now.ToString("MM/dd"));
         }
-        
+        else
+        {
+            CurrrentTimeText.text = string.Format("{0}", DateTime.Now.ToString("HH:mm"));
+        }
+
     }
 }

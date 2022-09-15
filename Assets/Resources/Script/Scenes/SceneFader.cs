@@ -22,7 +22,7 @@ public class SceneFader : MonoBehaviour
     IEnumerator FadeIn()
     {
         alpha = 1;
-        while (alpha>0)
+        while (alpha > 0)
         {
             alpha -= Time.deltaTime;
             blackimage.color = new Color(0, 0, 0, alpha);
@@ -34,7 +34,7 @@ public class SceneFader : MonoBehaviour
     IEnumerator Fadeout(string sceneName)
     {
         alpha = 0;
-        while (alpha<1)
+        while (alpha < 1)
         {
             alpha += Time.deltaTime;
             blackimage.color = new Color(0, 0, 0, alpha);
