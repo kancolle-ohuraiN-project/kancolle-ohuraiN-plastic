@@ -8805,7 +8805,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fcb1a2f4a5fe8ec49a39ef8d38aa9699, type: 3}
   - {fileID: 8300000, guid: 4a8ccf3894ca2fb4b9d28b2079c886e6, type: 3}
   - {fileID: 8300000, guid: b97a07b5481892340b2d5554a9d0dc8d, type: 3}
+  - {fileID: 8300000, guid: 9bb6a047f80a560439ae32d6ffb624ed, type: 3}
   kansen: {fileID: 1046503553}
+  LastKey: 0
 --- !u!1 &1710967007
 GameObject:
   m_ObjectHideFlags: 0
