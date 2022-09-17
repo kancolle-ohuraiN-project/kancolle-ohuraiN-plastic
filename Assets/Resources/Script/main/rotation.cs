@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class rotation : MonoBehaviour
@@ -17,7 +15,7 @@ public class rotation : MonoBehaviour
     //void Start() { }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (i >= 1)
         {

@@ -1,12 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 
 public class Fadebutton : MonoBehaviour
 {
-
     [Header("跳转到的场景名")]
     public string scenename;//scenename这一栏的参数处写场景2的名字
 

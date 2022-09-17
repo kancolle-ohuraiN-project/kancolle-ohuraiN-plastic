@@ -1,9 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
-using TMPro;
+
 //证书验证问题修复
 public class CertHandler : CertificateHandler
 {
@@ -12,17 +12,22 @@ public class CertHandler : CertificateHandler
         return true;
     }
 }
+
 public class VerCheck : MonoBehaviour
 {
     [Header("版本文件链接")]
     public string VerUrl;
+
     [Header("跳转到的场景名称")]
     public string ToSence;
+
     [Header("获取错误后跳转到的场景名称")]
     public string errorToSence;
+
     [Header("相关版本信息打印显示的控件")]
     public GameObject VerText;
-    void Start()
+
+    private void Start()
     {
         Debug.Log("Start to get Ver info");
         //判断客户端是否联网
@@ -34,7 +39,8 @@ public class VerCheck : MonoBehaviour
         }
         StartCoroutine(Get());
     }
-    IEnumerator Get()
+
+    private IEnumerator Get()
     {
         UnityWebRequest webRequest = UnityWebRequest.Get(VerUrl);
         webRequest.certificateHandler = new CertHandler();
@@ -87,10 +93,12 @@ public class VerCheck : MonoBehaviour
             SceneManager.LoadScene(errorToSence);
         }
     }
+
     public void toscene()
     {
         SceneManager.LoadScene(ToSence);
     }
+
     // Update is called once per frame
     //void Update() { }
 }

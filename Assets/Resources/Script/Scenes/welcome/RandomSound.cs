@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 public class RandomSound : MonoBehaviour
 {
     [Header("音频列表")]
     public AudioClip[] audios;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //获取音频数组数量
         int n = 0;

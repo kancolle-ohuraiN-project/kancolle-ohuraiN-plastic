@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+
 //防止出现CS0104
 using Random = UnityEngine.Random;
 
@@ -10,9 +7,12 @@ public class RandomKcSound : MonoBehaviour
 {
     [Header("音频列表")]
     public AudioClip[] audios;
+
     public GameObject kansen;
+
     [Header("上一次的Key")]
     public int LastKey;
+
     // Start is called before the first frame update
     public void RandomSound()
     {
@@ -36,7 +36,6 @@ public class RandomKcSound : MonoBehaviour
             //Debug.Log(RandKey);
             //Debug.Log(LastKey);
             goto ReGetKey;
-
         }
         //控制播放
         this.GetComponent<AudioSource>().clip = audios[RandKey];
