@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class DataPersistenceManager : MonoBehaviour
 {
-    [Header("File Storage Config")]
+    [Header("文件存储配置")]
+    [Tooltip("前后都要输入斜杠")]
+    [SerializeField] private string FolderName;
+    [Tooltip("无需输入文件后缀，默认为colle文件")]
     [SerializeField] private string fileName;
 
     [SerializeField] private bool useEncryption;
@@ -16,7 +19,7 @@ public class DataPersistenceManager : MonoBehaviour
     private void Start()
     {
         //Application.persistentDataPath：将数据存入unity默认的持久化目录
-        this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, useEncryption);
+        this.dataHandler = new FileDataHandler(Application.persistentDataPath + FolderName, fileName, useEncryption);
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
     }

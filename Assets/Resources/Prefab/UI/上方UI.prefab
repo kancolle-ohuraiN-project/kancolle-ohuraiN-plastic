@@ -44,8 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a290c35bb1107d04394a7a7b4f555013, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: BasicResources.colleSave
-  useEncryption: 0
+  FolderName: /Saves/
+  fileName: Save
+  useEncryption: 1
 --- !u!1 &5481099882232321492
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,13 +12,13 @@ public class FileDataHandler
     //是否进行加密
     private bool useEncryption = false;
 
-    //加密的key（长度32位）
+    //!加密的key（长度32位）
     private readonly string encryptionCodeWord = "Mgs.KoAd9y^O&VKFcI2_3v<NRY07&S?%";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
         this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName;
+        this.dataFileName = dataFileName+".colle";
         this.useEncryption = useEncryption;
     }
 
@@ -94,15 +94,9 @@ public class FileDataHandler
     / Rijndael加密算法使用
     / 加密：RijndaelEncrypt(dataToStore, encryptionCodeWord);
     / 解密：RijndaelDecrypt(dataToLoad, encryptionCodeWord);
+    / 密钥,长度可以为:64位(byte[8]),128位(byte[16]),192位(byte[24]),256位(byte[32])
     ***********************/
 
-    /// <summary>
-    /// Rijndael加密算法
-    /// </summary>
-    /// <param name="pString">待加密的明文</param>
-    /// <param name="pKey">密钥,长度可以为:64位(byte[8]),128位(byte[16]),192位(byte[24]),256位(byte[32])</param>
-    /// <param name="iv">iv向量,长度为128（byte[16])</param>
-    /// <returns></returns>
     private static string RijndaelEncrypt(string pString, string pKey)
     {
         //密钥
@@ -122,13 +116,6 @@ public class FileDataHandler
         return Convert.ToBase64String(resultArray, 0, resultArray.Length);
     }
 
-    /// <summary>
-    /// ijndael解密算法
-    /// </summary>
-    /// <param name="pString">待解密的密文</param>
-    /// <param name="pKey">密钥,长度可以为:64位(byte[8]),128位(byte[16]),192位(byte[24]),256位(byte[32])</param>
-    /// <param name="iv">iv向量,长度为128（byte[16])</param>
-    /// <returns></returns>
     private static String RijndaelDecrypt(string pString, string pKey)
     {
         //解密密钥
