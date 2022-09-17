@@ -59,6 +59,8 @@ public class DataPersistenceManager : MonoBehaviour
         {
             dataPersistenceObj.SaveData(gameData);
         }
+        dataHandler.Save(gameData);
+        Debug.Log("saved");
     }
 
     private void OnApplicationQuit()

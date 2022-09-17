@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Text = UnityEngine.UI.Text;
 
@@ -20,6 +22,10 @@ public class BasicResources : MonoBehaviour, IDataPersistence
     private int fuel = 0;
     private int aluminium = 0;
     private int steel = 0;
+    //司令部等级
+    private int player_level = 11;
+    //最大恢复量
+    private int MaxNaturalRecovery = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -28,6 +34,8 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         fuel_text.text = "0";
         aluminium_text.text = "0";
         steel_text.text = "0";
+        //使用协程来计算最大存储量与给予自然恢复
+        StartCoroutine(NaturalRecovery());
     }
 
     public void LoadData(GameData data)
@@ -46,6 +54,7 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         data.fuel = this.fuel;
         data.aluminium = this.aluminium;
         data.steel = this.steel;
+        Debug.Log("saveing");
     }
 
     // Update is called once per frame
@@ -56,5 +65,55 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         fuel_text.text = fuel.ToString();
         aluminium_text.text = aluminium.ToString();
         steel_text.text = steel.ToString();
+    }
+    IEnumerator NaturalRecovery()
+    {
+        while (true) // 暂且应该没有暂停的理由，防止数据更新不及时
+        {
+            //以下公式均为萌娘百科中获取 https://zh.moegirl.org.cn/%E8%88%B0%E9%98%9FCollection/%E8%B5%84%E6%BA%90
+
+            //每3分钟(180秒)更新一次资源
+            yield return new WaitForSeconds(15.0f);
+            //测试时可以将上部分180改为合适数值
+            //资源最大自然回复量=(司令部等级+3)*250
+            MaxNaturalRecovery = (player_level + 3) * 250;
+            Debug.Log(MaxNaturalRecovery);
+            //判断是否大于最大自然回复量
+            if (ammunition < MaxNaturalRecovery)
+            {
+                //油弹钢每3分钟回复3点（每24小时回复1440点），铝每3分钟回复1点（每24小时回复480点）
+                ammunition += 3;
+                //防止超出
+                if(ammunition > MaxNaturalRecovery)
+                {
+                    ammunition = MaxNaturalRecovery;
+                }
+            }
+            if (fuel < MaxNaturalRecovery)
+            {
+                fuel += 3;
+                if (fuel > MaxNaturalRecovery)
+                {
+                    fuel = MaxNaturalRecovery;
+                }
+            }
+            if (aluminium < MaxNaturalRecovery)
+            {
+                aluminium += 3;
+                if (aluminium > MaxNaturalRecovery)
+                {
+                    aluminium = MaxNaturalRecovery;
+                }
+            }
+            if (steel < MaxNaturalRecovery)
+            {
+                steel += 1;
+                if (steel > MaxNaturalRecovery)
+                {
+                    steel = MaxNaturalRecovery;
+                }
+            }
+
+        }
     }
 }
