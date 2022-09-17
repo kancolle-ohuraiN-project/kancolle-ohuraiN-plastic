@@ -1,7 +1,7 @@
 using UnityEngine;
 using Text = UnityEngine.UI.Text;
 
-public class ammunition : MonoBehaviour, IDataPersistence
+public class BasicResources : MonoBehaviour, IDataPersistence
 {
     [Tooltip("弹药UI文字")]
     public Text ammunition_text;
@@ -16,7 +16,7 @@ public class ammunition : MonoBehaviour, IDataPersistence
     public Text steel_text;
 
     //定义数据
-    private int ammunitions = 0;
+    private int ammunition = 0;
     private int fuel = 0;
     private int aluminium = 0;
     private int steel = 0;
@@ -33,7 +33,7 @@ public class ammunition : MonoBehaviour, IDataPersistence
     public void LoadData(GameData data)
     {
         //获取数据
-        this.ammunitions = data.ammunition;
+        this.ammunition = data.ammunition;
         this.fuel = data.fuel;
         this.aluminium = data.aluminium;
         this.steel = data.steel;
@@ -42,7 +42,7 @@ public class ammunition : MonoBehaviour, IDataPersistence
     public void SaveData(GameData data)
     {
         //保存数据
-        data.ammunition = this.ammunitions;
+        data.ammunition = this.ammunition;
         data.fuel = this.fuel;
         data.aluminium = this.aluminium;
         data.steel = this.steel;
@@ -52,7 +52,7 @@ public class ammunition : MonoBehaviour, IDataPersistence
     private void Update()
     {
         //打印数据
-        ammunition_text.text = ammunitions.ToString();
+        ammunition_text.text = ammunition.ToString();
         fuel_text.text = fuel.ToString();
         aluminium_text.text = aluminium.ToString();
         steel_text.text = steel.ToString();
