@@ -11,7 +11,7 @@ public class DataPersistenceManager : MonoBehaviour
     [Tooltip("无需输入文件后缀，默认为colle文件")]
     [SerializeField] private string fileName;
 
-    [SerializeField] private bool useEncryption;
+    [SerializeField] private bool useEncryption = true;
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
     private FileDataHandler dataHandler;
