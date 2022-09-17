@@ -7,6 +7,7 @@ public class DataPersistenceManager : MonoBehaviour
     [Header("文件存储配置")]
     [Tooltip("前后都要输入斜杠")]
     [SerializeField] private string FolderName;
+
     [Tooltip("无需输入文件后缀，默认为colle文件")]
     [SerializeField] private string fileName;
 
