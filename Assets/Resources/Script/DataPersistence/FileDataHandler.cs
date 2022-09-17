@@ -8,10 +8,12 @@ public class FileDataHandler
 {
     private string dataDirPath = "";
     private string dataFileName = "";
+
     //是否进行加密
     private bool useEncryption = false;
-    //加密的key
-    private readonly string encryptionCodeWord = "word";
+
+    //加密的key（长度32位）
+    private readonly string encryptionCodeWord = "Mgs.KoAd9y^O&VKFcI2_3v<NRY07&S?%";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
@@ -42,9 +44,8 @@ public class FileDataHandler
                 //可选地解密数据
                 if (useEncryption)
                 {
-                    dataToLoad = EncryptDecrypt(dataToLoad);
+                    dataToLoad = RijndaelDecrypt(dataToLoad, encryptionCodeWord);
                 }
-
                 //将Json中的数据反序列化回C#对象
                 loadedData = JsonUtility.FromJson<GameData>(dataToLoad);
             }
@@ -71,7 +72,7 @@ public class FileDataHandler
             //可选地加密数据
             if (useEncryption)
             {
-                dataToStore = EncryptDecrypt(dataToStore);
+                dataToStore = RijndaelEncrypt(dataToStore, encryptionCodeWord);
             }
 
             //将序列化数据写入文件
@@ -87,17 +88,6 @@ public class FileDataHandler
         {
             Debug.LogError("尝试将数据保存到文件时出错: " + fullPath + "\n" + e);
         }
-    }
-
-    // 下面是XOR加密的简单实现
-    private string EncryptDecrypt(string data)
-    {
-        string modifiedData = "";
-        for (int i = 0; i < data.Length; i++)
-        {
-            modifiedData += (char)(data[i] ^ encryptionCodeWord[i % encryptionCodeWord.Length]);
-        }
-        return modifiedData;
     }
 
     /***********************

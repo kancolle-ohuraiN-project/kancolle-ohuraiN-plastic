@@ -6,6 +6,7 @@ public class DataPersistenceManager : MonoBehaviour
 {
     [Header("File Storage Config")]
     [SerializeField] private string fileName;
+
     [SerializeField] private bool useEncryption;
     private GameData gameData;
     private List<IDataPersistence> dataPersistenceObjects;
@@ -60,7 +61,6 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(gameData);
         }
         dataHandler.Save(gameData);
-        Debug.Log("saved");
     }
 
     private void OnApplicationQuit()

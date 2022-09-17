@@ -22,8 +22,10 @@ public class BasicResources : MonoBehaviour, IDataPersistence
     private int fuel = 0;
     private int aluminium = 0;
     private int steel = 0;
+
     //司令部等级
     private int player_level = 11;
+
     //最大恢复量
     private int MaxNaturalRecovery = 0;
 
@@ -54,7 +56,6 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         data.fuel = this.fuel;
         data.aluminium = this.aluminium;
         data.steel = this.steel;
-        Debug.Log("saveing");
     }
 
     // Update is called once per frame
@@ -66,7 +67,8 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         aluminium_text.text = aluminium.ToString();
         steel_text.text = steel.ToString();
     }
-    IEnumerator NaturalRecovery()
+
+    private IEnumerator NaturalRecovery()
     {
         while (true) // 暂且应该没有暂停的理由，防止数据更新不及时
         {
@@ -84,7 +86,7 @@ public class BasicResources : MonoBehaviour, IDataPersistence
                 //油弹钢每3分钟回复3点（每24小时回复1440点），铝每3分钟回复1点（每24小时回复480点）
                 ammunition += 3;
                 //防止超出
-                if(ammunition > MaxNaturalRecovery)
+                if (ammunition > MaxNaturalRecovery)
                 {
                     ammunition = MaxNaturalRecovery;
                 }
@@ -113,7 +115,6 @@ public class BasicResources : MonoBehaviour, IDataPersistence
                     steel = MaxNaturalRecovery;
                 }
             }
-
         }
     }
 }
