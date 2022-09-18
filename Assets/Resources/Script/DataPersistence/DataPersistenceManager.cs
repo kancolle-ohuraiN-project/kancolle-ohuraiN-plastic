@@ -36,6 +36,8 @@ public class DataPersistenceManager : MonoBehaviour
 
     public void NewGame()
     {
+        //新建存档后初始化记录是否存档
+        PlayerPrefs.SetInt("IsSaved", 0);
         //给玩家初始资源
         this.gameData = new GameData();
     }
@@ -65,6 +67,8 @@ public class DataPersistenceManager : MonoBehaviour
             dataPersistenceObj.SaveData(gameData);
         }
         dataHandler.Save(gameData);
+        //用于检测存档丢失
+        PlayerPrefs.SetInt("IsSaved", 1);
     }
 
     private void OnApplicationQuit()
@@ -78,5 +82,9 @@ public class DataPersistenceManager : MonoBehaviour
             .OfType<IDataPersistence>();
 
         return new List<IDataPersistence>(dataPersistenceObjects);
+    }
+    public bool hasGameData()
+    {
+        return gameData != null;
     }
 }

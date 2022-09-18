@@ -5,12 +5,20 @@ public class GetErrMsg : MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("错误信息文本")]
+    [Tooltip("不是必要")]
     public string ErrorText;
+    [Header("显示的按钮")]
+    [Tooltip("不是必要")]
+    public GameObject Button;
+
+    private bool ShowNewSavebutton = false;
 
     private void Start()
     {
         //获取参数
-        string ErrorCode = SendErrMsg.Instance.param;
+        //string ErrorCode = SendErrMsg.Instance.param;
+        //假装传输
+        string ErrorCode = "3.1";
         ErrMsgJudge(ErrorCode);
     }
 
@@ -44,6 +52,16 @@ public class GetErrMsg : MonoBehaviour
                 ErrorText = "客户端版本并不为服务端版本\n请更新客户端";
                 break;
 
+            case "3.1":
+                ErrorText = "客户端存档丢失，\n请将存档移动到默认位置\n或者点击下方按钮重新创建存档";
+                ShowNewSavebutton = true;
+                break;
+
+            case "3.2":
+                ErrorText = "客户端存档损坏，\n请将备份存档移动到默认位置\n或者点击下方按钮重新创建存档";
+                ShowNewSavebutton = true;
+                break;
+
             case "99.99":
                 ErrorText = "恭喜您触发彩蛋了！\n请重启客户端吧！\n(未保存进度可能会丢失哦qwq)";
                 break;
@@ -54,5 +72,10 @@ public class GetErrMsg : MonoBehaviour
         }
         //打印字符
         this.GetComponent<TMP_Text>().text = ErrorText;
+        //是否显示按钮
+        if(ShowNewSavebutton == true)
+        {
+            Button.SetActive(true);
+        }
     }
 }

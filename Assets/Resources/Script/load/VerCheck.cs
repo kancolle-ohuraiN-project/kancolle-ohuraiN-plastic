@@ -38,6 +38,15 @@ public class VerCheck : MonoBehaviour
             SceneManager.LoadScene(errorToSence);
         }
         StartCoroutine(Get());
+        //顺便检测存档是否丢失
+        if(PlayerPrefs.GetInt("IsSaved") == 1)
+        {
+            if (!DataPersistenceManager.instance.hasGameData())
+            {
+                SendErrMsg.Instance.param = "3.1";
+                SceneManager.LoadScene(errorToSence);
+            }
+        }
     }
 
     private IEnumerator Get()
