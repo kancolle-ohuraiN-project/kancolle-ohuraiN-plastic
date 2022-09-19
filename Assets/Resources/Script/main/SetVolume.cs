@@ -19,7 +19,7 @@ public class SetVolume : MonoBehaviour
 
     public void SetBGMVolume(float volume)    // 控制背景音乐音量的函数
     {
-        if (volume == -40f)
+        if (volume == -20f)
         {
             volume = -80f;
             BGMIcon.sprite = OffIcon;
@@ -34,7 +34,7 @@ public class SetVolume : MonoBehaviour
 
     public void SetSoundEffectVolume(float volume)    // 控制音效音量的函数
     {
-        if (volume == -40f)
+        if (volume == -20f)
         {
             volume = -80f;
             SoundEffectIcon.sprite = OffIcon;
@@ -49,7 +49,7 @@ public class SetVolume : MonoBehaviour
 
     public void SetVoiceVolume(float volume)    // 控制舰娘语音音量的函数
     {
-        if (volume == -40f)
+        if (volume == -20f)
         {
             volume = -80f;
             VoiceIcon.sprite = OffIcon;
@@ -64,7 +64,7 @@ public class SetVolume : MonoBehaviour
 
     public void SetKCListVolume(float volume)    // 控制任务娘的函数（暂定，可能以后会直接控制开关）
     {
-        if (volume == -40f)
+        if (volume == -20f)
         {
             volume = -80f;
         }

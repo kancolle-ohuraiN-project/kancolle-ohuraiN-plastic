@@ -16,9 +16,9 @@ public class GetErrMsg : MonoBehaviour
     private void Start()
     {
         //获取参数
-        //string ErrorCode = SendErrMsg.Instance.param;
+        string ErrorCode = SendErrMsg.Instance.param;
         //假装传输
-        string ErrorCode = "3.1";
+        //string ErrorCode = "3.1";
         ErrMsgJudge(ErrorCode);
     }
 

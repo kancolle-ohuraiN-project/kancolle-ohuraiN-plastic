@@ -6,19 +6,20 @@ using UnityEngine;
 
 public class FileDataHandler
 {
-    private string dataDirPath = "";
-    private string dataFileName = "";
+    //申明文件存储位置
+    private string dataDirPath = null;
+    private string dataFileName = null;
 
-    //是否进行加密
-    private bool useEncryption = false;
+    //是否进行加密(默认为开启)
+    private bool useEncryption = true;
 
-    //!加密的key（长度32位）
+    //!加密的key（长度32位），支持任何标点符号(maybe)
     private readonly string encryptionCodeWord = "Mgs.KoAd9y^O&VKFcI2_3v<NRY07&S?%";
 
     public FileDataHandler(string dataDirPath, string dataFileName, bool useEncryption)
     {
         this.dataDirPath = dataDirPath;
-        this.dataFileName = dataFileName + ".colle";
+        this.dataFileName = dataFileName + ".colle";    //设置存档文件后缀
         this.useEncryption = useEncryption;
     }
 
@@ -32,7 +33,7 @@ public class FileDataHandler
             try
             {
                 //从文件中加载序列化数据
-                string dataToLoad = "";
+                string dataToLoad = null;
                 using (FileStream stream = new FileStream(fullPath, FileMode.Open))
                 {
                     using (StreamReader reader = new StreamReader(stream))
@@ -94,7 +95,7 @@ public class FileDataHandler
     / Rijndael加密算法使用
     / 加密：RijndaelEncrypt(dataToStore, encryptionCodeWord);
     / 解密：RijndaelDecrypt(dataToLoad, encryptionCodeWord);
-    / 密钥,长度可以为:64位(byte[8]),128位(byte[16]),192位(byte[24]),256位(byte[32])
+    / 密钥,长度可以为:64位(8字节),128位(16字节),192位(24字节),256位(32字节)
     ***********************/
 
     private static string RijndaelEncrypt(string pString, string pKey)

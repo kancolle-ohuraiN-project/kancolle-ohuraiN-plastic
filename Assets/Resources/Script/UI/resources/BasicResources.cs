@@ -73,7 +73,7 @@ public class BasicResources : MonoBehaviour, IDataPersistence
         {
             //以下公式均为萌娘百科中获取 https://zh.moegirl.org.cn/%E8%88%B0%E9%98%9FCollection/%E8%B5%84%E6%BA%90
 
-            //每3分钟(180秒)更新一次资源
+            //每3分钟(180秒)更新一次资源(测试时是15秒更新一次)
             yield return new WaitForSeconds(15.0f);
             //测试时可以将上部分180改为合适数值
             //资源最大自然回复量=(司令部等级+3)*250
